@@ -80,6 +80,10 @@ void Screen::setPixel(int x, int y, Uint8 red, Uint8 green, Uint8 blue) {
 	m_buffer[(y * SCREEN_WIDTH) + x] = color;
 }
 
+void Screen::clear() {
+	memset(m_buffer, 0, SCREEN_WIDTH * SCREEN_HEIGHT * sizeof(Uint32));
+}
+
 void Screen::update() {
 	SDL_UpdateTexture(m_texture, NULL, m_buffer, SCREEN_WIDTH * sizeof(Uint32));
 	SDL_RenderClear(m_renderer);
