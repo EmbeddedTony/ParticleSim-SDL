@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
 		// Update particles
 		// Draw particles
 		int elapsed =	SDL_GetTicks();
-		screen.clear();
+		
 		swarm.update(elapsed);
 
 
@@ -48,6 +48,7 @@ int main(int argc, char* argv[]) {
 			screen.setPixel(x, y, red, green, blue);
 		}
 	
+		screen.boxBlur();
 
 		//	Draw the screen
 		screen.update();
